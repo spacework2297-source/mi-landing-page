@@ -266,6 +266,11 @@
             animation: fall linear forwards;
         }
 
+        img {
+            width: 200px;
+            border-radius: 100px;
+        }
+
         @keyframes fall {
             to {
                 transform: translateY(110vh) rotate(360deg);
@@ -295,8 +300,11 @@
         <div class="photo-frame">
             <div class="photo-inner">
                 <div class="slide flex flex-col items-center justify-center h-full">
-                    <span class="serif-font text-[10px] text-blue-300">28/03/26</span>
-                    <span class="text-3xl mt-2">🕊️</span>
+                    <span>
+                        <img class="img"
+                            src="https://img.freepik.com/vector-premium/decoracion-azul-ducha-bebe-centrada-vista-gran-angulo_1322553-85119.jpg?w=1480">
+                    </span>
+                    <span class="serif-font text-[10px] text-blue-300">28-Marzo-2026</span>
                 </div>
                 <img class="slide" src="img/foto1.jpeg" alt="Bebé Yadiel">
                 <img class="slide" src="img/foto2.jpeg" alt="Yadiel">
@@ -347,36 +355,12 @@
             </details>
         </section>
 
-        <!-- Cuenta Regresiva -->
-        <div class="flex justify-center gap-6 mb-8 text-center">
-            <div>
-                <span id="days" class="block text-xl font-bold text-blue-900">00</span>
-                <span class="text-[8px] text-slate-400 uppercase font-bold">Días</span>
-            </div>
-            <div class="w-[1px] h-8 bg-slate-100"></div>
-            <div>
-                <span id="hours" class="block text-xl font-bold text-blue-900">00</span>
-                <span class="text-[8px] text-slate-400 uppercase font-bold">Horas</span>
-            </div>
-            <div class="w-[1px] h-8 bg-slate-100"></div>
-            <div>
-                <span id="mins" class="block text-xl font-bold text-blue-900">00</span>
-                <span class="text-[8px] text-slate-400 uppercase font-bold">Mins</span>
-            </div>
-        </div>
-
         <!-- Acciones Principales -->
         <footer>
             <!-- El botón de Bendiciones ahora está aquí -->
             <button onclick="triggerBlessings(event)" class="blessing-button shadow-lg">
-                ✨ Enviar Bendiciones ✨
+                ✨ Bendiciones ✨
             </button>
-
-            <!-- El botón de WhatsApp debajo -->
-            <a href="https://wa.me/?text=Hola!%20Confirmo%20con%20mucho%20gusto%20mi%20asistencia%20al%20bautismo%20de%20Yadiel"
-                target="_blank" class="whatsapp-button">
-                🙏🏼
-            </a>
 
             <p class="text-[9px] text-slate-300 mt-6 tracking-widest uppercase">¡¡Te esperamos!!</p>
         </footer>
