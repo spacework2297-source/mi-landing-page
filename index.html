@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Invitación Bautismo - Yadiel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Montserrat:wght@100;300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --blue-soft: #f0f9ff;
+            --blue-main: #60a5fa;
+            --blue-dark: #1e40af;
+            --text-main: #334155;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fdfdfd;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Fondo decorativo */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(30, 64, 175, 0.05) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        .serif-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .script-font {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .premium-gradient-text {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-container {
+            width: 90%;
+            max-width: 380px;
+            max-height: 85vh;
+            padding: 40px 25px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 10;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            text-align: center;
+        }
+
+        .card-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .photo-frame {
+            width: 180px;
+            height: 230px;
+            margin: 0 auto 25px;
+            padding: 10px;
+            background: white;
+            border-radius: 100px 100px 20px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .photo-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 90px 90px 15px 15px;
+            overflow: hidden;
+            background: var(--blue-soft);
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: kenBurns 6s infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        details {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            list-style: none;
+            padding: 15px 5px;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        summary::after {
+            content: '⌄';
+            font-size: 16px;
+            color: var(--blue-main);
+            transition: transform 0.3s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        /* Botón de Bendiciones Mejorado (Ahora en el lugar principal) */
+        .blessing-button {
+            background: linear-gradient(135deg, #d4af37, #fefce8, #d4af37);
+            background-size: 200% auto;
+            color: #714a00;
+            padding: 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid #eab308;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .blessing-button:active {
+            transform: scale(0.95);
+            box-shadow: none;
+        }
+
+        /* Botón de Confirmación Secundario */
+        .whatsapp-button {
+            background: #f8fafc;
+            color: #1e40af;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-button:active {
+            background: #f1f5f9;
+            transform: scale(0.98);
+        }
+
+        .secondary-button {
+            background: #f8fafc;
+            color: #1e40af;
+            border: 1px solid #e2e8f0;
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        #music-control {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 100;
+            background: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            border: 1px solid #f1f5f9;
+            font-size: 20px;
+        }
+
+        /* Partículas de Bendiciones */
+        .blessing-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            font-size: 24px;
+            user-select: none;
+            animation: explodeFade 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes explodeFade {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--x), var(--y)) scale(1.5) rotate(var(--r));
+                opacity: 0;
+            }
+        }
+
+        .ambient-particle {
+            position: fixed;
+            top: -20px;
+            pointer-events: none;
+            z-index: 1;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="particles-layer"></div>
+
+    <div id="music-control" onclick="toggleMusic()">🎵</div>
+    <audio id="bg-music" loop>
+        <source src="audio/Ángeles De Dios.mpeg" type="audio/mpeg">
+    </audio>
+
+    <div class="card-container" id="main-scroll-container">
+        <!-- Títulos -->
+        <header class="mb-6">
+            <p class="serif-font text-[9px] tracking-[0.5em] text-blue-400 font-bold mb-1 uppercase">Mi Bautismo</p>
+            <h1 class="script-font text-6x1 premium-gradient-text">Yadiel Salvador</h1>
+            <div class="w-12 h-[1px] bg-blue-100 mx-auto mt-4"></div>
+        </header>
+
+        <!-- Slider -->
+        <div class="photo-frame">
+            <div class="photo-inner">
+                <div class="slide flex flex-col items-center justify-center h-full">
+                    <span class="serif-font text-[10px] text-blue-300">28/03/26</span>
+                    <span class="text-3xl mt-2">🕊️</span>
+                </div>
+                <img class="slide" src="img/foto1.jpeg" alt="Bebé Yadiel">
+                <img class="slide" src="img/foto2.jpeg" alt="Yadiel">
+            </div>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="mb-6">
+            <p class="text-[11px] text-slate-400 italic font-light px-4 leading-relaxed">
+                "En este día tan especial, recibo la bendición de Dios para caminar siempre bajo su luz y protección."
+            </p>
+        </div>
+
+        <!-- Información Desplegable -->
+        <section class="mb-8 text-left">
+            <details class="info-accordion">
+                <summary class="serif-font">Padres & Padrinos</summary>
+                <div class="py-4 text-center space-y-3 bg-blue-50/30 rounded-2xl">
+                    <div>
+                        <p class="text-[8px] uppercase tracking-tighter text-blue-400 font-bold">Papás</p>
+                        <p class="text-[13px] font-semibold text-slate-700">Salvador Torres & Rosa Madero</p>
+                    </div>
+                    <div class="w-8 h-[1px] bg-blue-100 mx-auto"></div>
+                    <div>
+                        <p class="text-[8px] uppercase tracking-tighter text-blue-400 font-bold">Padrino</p>
+                        <p class="text-[13px] font-semibold text-slate-700">Yair Aragón Vara</p>
+                    </div>
+                </div>
+            </details>
+
+            <details class="info-accordion">
+                <summary class="serif-font">Misa</summary>
+                <div class="py-4 text-center">
+                    <p class="serif-font text-xl font-bold text-blue-900">09:00 AM</p>
+                    <p class="text-[11px] font-bold text-slate-600 mt-1 uppercase">Iglesia del Señor de Tepalcingo</p>
+                    <p class="text-[10px] text-slate-400">Xochiltepec, Puebla</p>
+
+                </div>
+            </details>
+
+            <details class="info-accordion">
+                <summary class="serif-font">Celebración</summary>
+                <div class="py-4 text-center">
+                    <p class="text-[12px] font-bold text-blue-900 uppercase">Salón Refugio</p>
+                    <p class="text-[10px] text-slate-500">Calle Tamaulipas Ote.</p>
+
+                </div>
+            </details>
+        </section>
+
+        <!-- Cuenta Regresiva -->
+        <div class="flex justify-center gap-6 mb-8 text-center">
+            <div>
+                <span id="days" class="block text-xl font-bold text-blue-900">00</span>
+                <span class="text-[8px] text-slate-400 uppercase font-bold">Días</span>
+            </div>
+            <div class="w-[1px] h-8 bg-slate-100"></div>
+            <div>
+                <span id="hours" class="block text-xl font-bold text-blue-900">00</span>
+                <span class="text-[8px] text-slate-400 uppercase font-bold">Horas</span>
+            </div>
+            <div class="w-[1px] h-8 bg-slate-100"></div>
+            <div>
+                <span id="mins" class="block text-xl font-bold text-blue-900">00</span>
+                <span class="text-[8px] text-slate-400 uppercase font-bold">Mins</span>
+            </div>
+        </div>
+
+        <!-- Acciones Principales -->
+        <footer>
+            <!-- El botón de Bendiciones ahora está aquí -->
+            <button onclick="triggerBlessings(event)" class="blessing-button shadow-lg">
+                ✨ Enviar Bendiciones ✨
+            </button>
+
+            <!-- El botón de WhatsApp debajo -->
+            <a href="https://wa.me/?text=Hola!%20Confirmo%20con%20mucho%20gusto%20mi%20asistencia%20al%20bautismo%20de%20Yadiel"
+                target="_blank" class="whatsapp-button">
+                🙏🏼
+            </a>
+
+            <p class="text-[9px] text-slate-300 mt-6 tracking-widest uppercase">¡¡Te esperamos!!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Lógica de Bendiciones (Palomas, Corazones y Estrellas)
+        function triggerBlessings(event) {
+            const icons = ['🕊️', '❤️', '✨', '⭐', '🤍'];
+            const count = 25;
+            const rect = event.target.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'blessing-particle';
+                p.innerText = icons[Math.floor(Math.random() * icons.length)];
+
+                p.style.left = `${centerX}px`;
+                p.style.top = `${centerY}px`;
+
+                // Trayectoria expansiva aleatoria hacia arriba y a los lados
+                const angle = (Math.random() * Math.PI) + Math.PI; // Solo hacia arriba (180 grados superiores)
+                const dist = 200 + Math.random() * 300;
+                const x = Math.cos(angle) * dist;
+                const y = Math.sin(angle) * dist;
+                const r = (Math.random() - 0.5) * 1000;
+
+                p.style.setProperty('--x', `${x}px`);
+                p.style.setProperty('--y', `${y}px`);
+                p.style.setProperty('--r', `${r}deg`);
+
+                document.body.appendChild(p);
+                setTimeout(() => p.remove(), 2500);
+            }
+        }
+
+        // Desplazamiento automático hacia arriba al abrir acordeones
+        const accordions = document.querySelectorAll('.info-accordion');
+        accordions.forEach(acc => {
+            acc.addEventListener('toggle', (e) => {
+                if (acc.open) {
+                    setTimeout(() => {
+                        acc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            });
+        });
+
+        // Contador de tiempo
+        const targetDate = new Date('March 28, 2026 09:00:00').getTime();
+        function updateCounter() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            if (diff <= 0) return;
+            document.getElementById('days').innerText = Math.floor(diff / 86400000).toString().padStart(2, '0');
+            document.getElementById('hours').innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
+            document.getElementById('mins').innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+        }
+        setInterval(updateCounter, 1000);
+        updateCounter();
+
+        // Slider de fotos
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function rotateSlides() {
+            slides.forEach(s => s.style.display = "none");
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.display = (currentSlide === 0) ? "flex" : "block";
+            setTimeout(rotateSlides, 5000);
+        }
+        rotateSlides();
+
+        // Control de música
+        let playing = false;
+        const audio = document.getElementById('bg-music');
+        function toggleMusic() {
+            playing ? audio.pause() : audio.play();
+            document.getElementById('music-control').innerText = playing ? "🎵" : "🔇";
+            playing = !playing;
+        }
+
+        // Partículas de ambiente
+        function initAmbientParticles() {
+            const container = document.getElementById('particles-layer');
+            const items = ['✨', '🤍', '🕊️'];
+            setInterval(() => {
+                const p = document.createElement('div');
+                p.className = 'ambient-particle';
+                p.innerText = items[Math.floor(Math.random() * items.length)];
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.fontSize = (Math.random() * 12 + 8) + 'px';
+                p.style.opacity = Math.random() * 0.3;
+                p.style.animationDuration = (Math.random() * 6 + 6) + 's';
+                container.appendChild(p);
+                setTimeout(() => p.remove(), 12000);
+            }, 3000);
+        }
+        initAmbientParticles();
+    </script>
+</body>
+
+</html>
